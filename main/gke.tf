@@ -29,12 +29,21 @@ resource "google_container_cluster" "gke" {
   }
 }
 
+resource "google_pubsub_topic" "fraud_topic" {
+  name = "fraud-topic"
+}
+
+resource "google_pubsub_subscription" "fraud_sub" {
+  name  = "fraud-sub"
+  topic = google_pubsub_topic.fraud_topic.name
+}
+
 resource "google_container_node_pool" "nodes" {
   name     = "node-pool"
   cluster  = google_container_cluster.gke.name
   location = "us-central1-a"
 
-  node_count = 1
+  node_count = 2
 
   node_config {
     machine_type = "e2-medium"

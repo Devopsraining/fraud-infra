@@ -16,6 +16,12 @@ resource "kubernetes_namespace_v1" "sonarqube" {
   }
 }
 
+resource "kubernetes_namespace_v1" "vault" {
+  metadata {
+    name = "vault"
+  }
+}
+
 resource "kubernetes_namespace_v1" "external_secrets" {
   metadata {
     name = "external-secrets"
