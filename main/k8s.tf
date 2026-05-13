@@ -28,6 +28,12 @@ resource "kubernetes_namespace_v1" "dynatrace" {
   }
 }
 
+resource "kubernetes_namespace_v1" "ecommerce" {
+  metadata {
+    name = "ecommerce"
+  }
+}
+
 resource "kubernetes_namespace_v1" "external_secrets" {
   metadata {
     name = "external-secrets"

@@ -43,10 +43,10 @@ resource "google_container_node_pool" "nodes" {
   cluster  = google_container_cluster.gke.name
   location = "us-central1-a"
 
-  node_count = 2
+  node_count = 3
 
   node_config {
-    machine_type = "e2-medium"
+    machine_type = "e2-standard-2"
 
     disk_size_gb = 20
     disk_type    = "pd-standard"
