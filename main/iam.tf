@@ -75,6 +75,12 @@ resource "google_service_account_iam_binding" "binding" {
   ]
 }
 
+resource "google_service_account_iam_member" "workload_identity_fraud_sa" {
+  service_account_id = google_service_account.fraud_sa.name
+  role               = "roles/iam.workloadIdentityUser"
+  member             = "serviceAccount:${var.project_id}.svc.id.goog[fraud/fraud-sa]"
+}
+
 output "github_actions_sa_email" {
   description = "Service account email for GitHub Actions"
   value       = google_service_account.github_actions.email

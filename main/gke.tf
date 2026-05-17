@@ -46,9 +46,9 @@ resource "google_container_node_pool" "nodes" {
   node_count = 3
 
   node_config {
-    machine_type = "e2-standard-2"
+    machine_type = "e2-standard-4"
 
-    disk_size_gb = 20
+    disk_size_gb = 50
     disk_type    = "pd-standard"
 
     oauth_scopes = [
